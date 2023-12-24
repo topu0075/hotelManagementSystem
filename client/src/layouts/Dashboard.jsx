@@ -113,6 +113,12 @@ const Dashboard = () => {
                     Upcoming Meals
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink to='/dashboard/approveCustomMeals'>
+                    <FaUtensils></FaUtensils>
+                    Approve Meal Request
+                  </NavLink>
+                </li>
               </>
             ) : (
               <>

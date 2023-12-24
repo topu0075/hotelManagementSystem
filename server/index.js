@@ -50,6 +50,7 @@ async function run() {
     const upcomingMealCollection = database.collection("upcoming");
     const reviewCollection = database.collection("reviews");
     const userCollection = database.collection("users");
+    const customizeMealRequest = database.collection("customizeMeal");
 
     //GET APIS
 
@@ -113,6 +114,12 @@ async function run() {
       res.send(result);
     });
 
+    app.get("/customizeMeal", async (req, res) => {
+      const customizeMeal = customizeMealRequest.find();
+      const result = await customizeMeal.toArray();
+      res.send(result);
+    });
+
     // POST APIS
     app.post("/addMeal", async (req, res) => {
       const data = req.body;
@@ -124,8 +131,15 @@ async function run() {
 
     app.post("/upcomingMeals", async (req, res) => {
       const data = req.body;
-      // console.log(data);
+      console.log(data);
       const result = await upcomingMealCollection.insertOne(data);
+      console.log(result);
+      res.send(result);
+    });
+
+    app.post("/customizeMeal", async (req, res) => {
+      const data = req.body;
+      const result = await customizeMealRequest.insertOne(data);
       console.log(result);
       res.send(result);
     });
@@ -212,6 +226,14 @@ async function run() {
       const query = { _id: new ObjectId(mealId) };
       console.log(query);
       const result = await mealsCollection.deleteOne(query);
+      res.send(result);
+    });
+
+    app.delete("/deleteCustomMeal/:id", async (req, res) => {
+      const mealId = req.params.id;
+      const query = { _id: new ObjectId(mealId) };
+      console.log(query);
+      const result = await customizeMealRequest.deleteOne(query);
       res.send(result);
     });
   } finally {

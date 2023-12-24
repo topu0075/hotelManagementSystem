@@ -33,6 +33,9 @@ const Header = () => {
                 <NavLink to='/upcomingmeals'>Upcoming Meals</NavLink>
               </li>
               <li className='mx-2'>
+                <NavLink to='/custommeal'>Customize Meals</NavLink>
+              </li>
+              <li className='mx-2'>
                 <NavLink to='/login'>Join US</NavLink>
               </li>
               <li>
@@ -127,6 +130,9 @@ const Header = () => {
                 </li>
                 <li className='mt-2'>
                   <NavLink to='/upcomingmeals'>Upcoming Meals</NavLink>
+                </li>
+                <li className='mx-2'>
+                  <NavLink to='/custommeal'>Customize Meals</NavLink>
                 </li>
                 <li className='mt-2'>
                   <NavLink to='/login'>Join US</NavLink>
